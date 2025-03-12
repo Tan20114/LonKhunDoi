@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TantanTestField
 {
-    public partial class Form1 : Form
+    public partial class TestField : Form
     {
-        public Form1()
+        public TestField()
         {
             InitializeComponent();
         }

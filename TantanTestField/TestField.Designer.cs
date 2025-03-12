@@ -1,6 +1,6 @@
 ﻿namespace TantanTestField
 {
-    partial class Form1
+    partial class TestField
     {
         /// <summary>
         /// Required designer variable.
