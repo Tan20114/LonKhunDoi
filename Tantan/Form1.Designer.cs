@@ -37,6 +37,12 @@
             this.D_Visualize = new System.Windows.Forms.Label();
             this.J_Visualize = new System.Windows.Forms.Label();
             this.L_Visualize = new System.Windows.Forms.Label();
+            this.P2Inventory = new System.Windows.Forms.PictureBox();
+            this.P1Inventory = new System.Windows.Forms.PictureBox();
+            this.Counter = new System.Windows.Forms.Label();
+            this.Counter2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.P2Inventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1Inventory)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,18 +66,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(183, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "DebuffP1";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(511, 209);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label3.Text = "DebuffP2";
             // 
             // A_VIsualize
             // 
@@ -109,12 +115,52 @@
             this.L_Visualize.TabIndex = 6;
             this.L_Visualize.Text = "L";
             // 
+            // P2Inventory
+            // 
+            this.P2Inventory.BackColor = System.Drawing.Color.White;
+            this.P2Inventory.Location = new System.Drawing.Point(660, 27);
+            this.P2Inventory.Name = "P2Inventory";
+            this.P2Inventory.Size = new System.Drawing.Size(100, 50);
+            this.P2Inventory.TabIndex = 7;
+            this.P2Inventory.TabStop = false;
+            // 
+            // P1Inventory
+            // 
+            this.P1Inventory.BackColor = System.Drawing.Color.White;
+            this.P1Inventory.Location = new System.Drawing.Point(30, 27);
+            this.P1Inventory.Name = "P1Inventory";
+            this.P1Inventory.Size = new System.Drawing.Size(100, 50);
+            this.P1Inventory.TabIndex = 7;
+            this.P1Inventory.TabStop = false;
+            // 
+            // Counter
+            // 
+            this.Counter.AutoSize = true;
+            this.Counter.Location = new System.Drawing.Point(152, 356);
+            this.Counter.Name = "Counter";
+            this.Counter.Size = new System.Drawing.Size(77, 20);
+            this.Counter.TabIndex = 8;
+            this.Counter.Text = "DebuffP1";
+            // 
+            // Counter2
+            // 
+            this.Counter2.AutoSize = true;
+            this.Counter2.Location = new System.Drawing.Point(511, 356);
+            this.Counter2.Name = "Counter2";
+            this.Counter2.Size = new System.Drawing.Size(77, 20);
+            this.Counter2.TabIndex = 8;
+            this.Counter2.Text = "DebuffP1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Counter2);
+            this.Controls.Add(this.Counter);
+            this.Controls.Add(this.P1Inventory);
+            this.Controls.Add(this.P2Inventory);
             this.Controls.Add(this.L_Visualize);
             this.Controls.Add(this.J_Visualize);
             this.Controls.Add(this.D_Visualize);
@@ -126,6 +172,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Start);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HandleInput);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.HandleKeyUp);
+            ((System.ComponentModel.ISupportInitialize)(this.P2Inventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1Inventory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,13 +183,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label A_VIsualize;
-        private System.Windows.Forms.Label D_Visualize;
-        private System.Windows.Forms.Label J_Visualize;
-        private System.Windows.Forms.Label L_Visualize;
         public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label A_VIsualize;
+        public System.Windows.Forms.Label D_Visualize;
+        public System.Windows.Forms.Label J_Visualize;
+        public System.Windows.Forms.Label L_Visualize;
+        public System.Windows.Forms.PictureBox P1Inventory;
+        public System.Windows.Forms.PictureBox P2Inventory;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label Counter;
+        public System.Windows.Forms.Label Counter2;
     }
 }
 

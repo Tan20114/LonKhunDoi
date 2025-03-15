@@ -10,16 +10,89 @@ namespace Tantan
 {
     internal class Player2 : Player
     {
+        public Player2(Item itemRef, Form1 formRef)
+        {
+            item = itemRef;
+            form = formRef;
+            inventory = form.P2Inventory;
+            debuffVisualize = form.label3;
+        }
+
+        public override void SetOpponent(Player opp)
+        {
+            opponent = opp;
+        }
+
+        public override void Update()
+        {
+            form.Counter2.Text = debuff2Counter.ToString();
+        }
+
         public override void MakeScore(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.J && isFirstKey)
+            if (isDebuff3)
             {
-                isFirstKey = true;
+                if (e.KeyCode == Keys.Y && !isFirstKey)
+                {
+                    isFirstKey = true;
+                }
+                if (e.KeyCode == Keys.P && isFirstKey)
+                {
+                    Form1.score -= scoreValue;
+                    finalScore += scoreValue;
+                    isFirstKey = false;
+                }
             }
-            if (e.KeyCode == Keys.L && isFirstKey)
+            else if(isDebuff2)
             {
-                Form1.score--;
-                isFirstKey = false;
+                if (e.KeyCode == Keys.J && !keyPressed)
+                {
+                    Form1.score -= scoreValue;
+                    finalScore += scoreValue;
+                    debuff2Counter++;
+                    keyPressed = true;
+                }
+            }
+            else
+            {
+                if (e.KeyCode == Keys.J && !isFirstKey)
+                {
+                    isFirstKey = true;
+                }
+                if (e.KeyCode == Keys.L && isFirstKey)
+                {
+                    Form1.score -= scoreValue;
+                    finalScore += scoreValue;
+                    isFirstKey = false;
+                }
+            }
+        }
+
+        Item get;
+
+        public override void CollectItem(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.K && item.ItemCount > 0)
+            {
+                item.DestroyItem();
+                item.ItemCount--;
+                item.spriteRenderer = inventory;
+                get = item.RandomItem();
+                inventory.BackColor = get.color;
+            }
+        }
+
+        public override void UseItem(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.I && get != null)
+            {
+                opponent.debuff = get;
+                opponent.DebuffCheck();
+                opponent.DebuffHandle();
+            }
+            else
+            {
+                opponent.debuff = null;
             }
         }
     }

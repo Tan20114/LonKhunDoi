@@ -10,11 +10,26 @@ namespace Tantan
 {
     internal class Item
     {
+        public enum DebuffType
+        {
+            None,
+            Shit,
+            Car,
+            Friend
+        }
+
         Form _form;
 
-        protected PictureBox spriteRenderer;
-        protected Point spawnPoint = new Point(0,0);
+        public PictureBox spriteRenderer;
+        protected PictureBox itemObject = new PictureBox();
+
+        public Image sprite;
+        public Color color;
+
+        protected Point spawnPoint = new Point(200,0);
         int endPoint = 100;
+
+        public DebuffType type = DebuffType.None;
 
         int speed = 0;
         int acceleration = 2;
@@ -25,10 +40,17 @@ namespace Tantan
             get => itemCount;
             set => itemCount = value;
         }
+        public bool isCollectable = false;
+
+        public Item()
+        {
+
+        }
 
         public Item(Form form)
         {
             _form = form;
+            itemObject.Visible = false;
         }
 
         public void Update()
@@ -39,16 +61,22 @@ namespace Tantan
         public void SpawnItem()
         {
             speed = 0;
-            PictureBox item = new PictureBox();
-            item.Size = new System.Drawing.Size(100,100);
-            item.Location = spawnPoint;
-            item.SizeMode = PictureBoxSizeMode.Zoom;
-            item.BackColor = Color.White;
+            SetObject();
+            itemObject.Visible = true;
 
-            spriteRenderer = item;
-            spriteRenderer.BringToFront();
-            _form.Controls.Add(spriteRenderer);
+            spriteRenderer = itemObject;
+
+            itemObject.BringToFront();
+
+            _form.Controls.Add(itemObject);
+
             itemCount++;
+        }
+
+        public void DestroyItem()
+        {
+            itemObject.Visible = false;
+            isCollectable = false;
         }
 
         void Accelerate()
@@ -58,11 +86,46 @@ namespace Tantan
 
         void LocationUpdate()
         {
-            if (spriteRenderer != null && spriteRenderer.Location.Y < endPoint)
+            if (itemObject != null && itemObject.Location.Y < endPoint)
             {
                 Accelerate();
-                spriteRenderer.Location = new Point(spriteRenderer.Location.X, spriteRenderer.Location.Y+speed);
+                itemObject.Location = new Point(itemObject.Location.X, itemObject.Location.Y+speed);
             }
+        }
+
+        void SetObject()
+        {
+            itemObject.Size = new System.Drawing.Size(100, 100);
+            itemObject.Location = spawnPoint;
+            itemObject.SizeMode = PictureBoxSizeMode.Zoom;
+            itemObject.BackColor = Color.White;
+        }
+
+        public Item RandomItem()
+        {
+            Random random = new Random();
+            int randomTypeValue = random.Next(1, 4);
+            switch (randomTypeValue)
+            {
+                case 1:
+                    {
+                        return new Debuff1();
+                    }
+                case 2:
+                    {
+                        return new Debuff2();
+                    }
+                case 3:
+                    {
+                        return new Debuff3();
+                    }
+            }
+            return null;
+        }
+
+        public virtual void DebuffEffect()
+        {
+
         }
     }
 }
