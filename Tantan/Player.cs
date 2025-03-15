@@ -36,7 +36,7 @@ namespace Tantan
         protected int debuff2Counter = 0;
         protected bool keyPressed = false;
 
-        protected bool isDebuff3 = false;
+        public bool isDebuff3 = false;
         #endregion
 
         #region Initial

@@ -89,6 +89,7 @@ namespace Tantan
                 opponent.debuff = get;
                 opponent.DebuffCheck();
                 opponent.DebuffHandle();
+                opponent.debuff = null;
             }
             else
             {

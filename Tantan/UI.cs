@@ -28,6 +28,28 @@ namespace Tantan
 
         void KeyVisualize()
         {
+            if(p1.isDebuff3)
+            {
+                _form.A_VIsualize.Text = "Q";
+                _form.D_Visualize.Text = "T";
+            }
+            else
+            {
+                _form.A_VIsualize.Text = "A";
+                _form.D_Visualize.Text = "D";
+            }
+
+            if (p2.isDebuff3)
+            {
+                _form.J_Visualize.Text = "Y";
+                _form.L_Visualize.Text = "P";
+            }
+            else
+            {
+                _form.J_Visualize.Text = "J";
+                _form.L_Visualize.Text = "L";
+            }
+
             if (p1.isFirstKey)
             {
                 _form.D_Visualize.ForeColor = Color.Red;
