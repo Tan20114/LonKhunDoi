@@ -74,18 +74,20 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Purple;
-            this.pictureBox4.Location = new System.Drawing.Point(240, 667);
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Location = new System.Drawing.Point(-79, 542);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(300, 388);
+            this.pictureBox4.Size = new System.Drawing.Size(640, 530);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox5.Location = new System.Drawing.Point(1509, 667);
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Location = new System.Drawing.Point(1383, 542);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(300, 388);
+            this.pictureBox5.Size = new System.Drawing.Size(640, 530);
             this.pictureBox5.TabIndex = 5;
             this.pictureBox5.TabStop = false;
             // 
