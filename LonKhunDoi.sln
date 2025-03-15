@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LonKhunDoi", "LonKhunDoi\Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartGame", "StartGame\StartGame.csproj", "{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tantan", "C:\Users\ROG STRIX G614\source\repos\LonKhunDoi\Tantan\Tantan.csproj", "{26A8A7D9-1237-454E-A09B-521C59EDA501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
