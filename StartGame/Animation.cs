@@ -11,8 +11,20 @@ namespace StartGame
     class Animation
     {
         private Timer animationTimer;
+        private bool isFlip;
         protected int currentFrame = 0;
         protected PictureBox pictureBox;
+
+        public Animation(PictureBox pictureBox, int interval, bool isFlip)
+        {
+            this.pictureBox = pictureBox;
+            this.isFlip = isFlip;
+
+            animationTimer = new Timer();
+            animationTimer.Interval = interval;
+            animationTimer.Tick += AnimationTimer_Tick;
+            animationTimer.Start();
+        }
 
         public Animation(PictureBox pictureBox, int interval)
         {
@@ -36,21 +48,29 @@ namespace StartGame
 
         protected virtual void UpdatePictureBox()
         {
+            SpriteEditor spriteSheet = new SpriteEditor(Assets.SpriteSheetPath,2);
+
             Rectangle frameRect = new Rectangle(
-                (currentFrame % (Assets.SpriteSheetPath.Width / Assets.FrameWidth)) * Assets.FrameWidth,
-                (currentFrame / (Assets.SpriteSheetPath.Width / Assets.FrameWidth)) * Assets.FrameHeight,
-                Assets.FrameWidth,
-                Assets.FrameHeight
+                (currentFrame % (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameWidth,
+                (currentFrame / (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameHeight,
+                spriteSheet.FrameWidth,
+                spriteSheet.FrameHeight
             );
 
-            Bitmap frameImage = new Bitmap(Assets.FrameWidth, Assets.FrameHeight);
+            Bitmap frameImage = new Bitmap(spriteSheet.FrameWidth, spriteSheet.FrameHeight);
 
             using (Graphics g = Graphics.FromImage(frameImage))
             {
-                g.DrawImage(Assets.SpriteSheetPath, 0, 0, frameRect, GraphicsUnit.Pixel);
+                g.DrawImage(spriteSheet.sprite, 0, 0, frameRect, GraphicsUnit.Pixel);
             }
 
             pictureBox.Image = frameImage;
+
+            if(isFlip)
+            {
+                pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                pictureBox.Refresh();
+            }
         }
     }
 }

@@ -42,7 +42,6 @@ namespace StartGame
             FrameWidth = 640;
             FrameHeight = 530;
             TotalFrames = 2;
-
         }
     }
 }
