@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LonKhunDoi", "LonKhunDoi\LonKhunDoi.csproj", "{7835D810-BAAB-4D1E-B5C2-A84D008ED10A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tantan", "Tantan\Tantan.csproj", "{26A8A7D9-1237-454E-A09B-521C59EDA501}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartGame", "StartGame\StartGame.csproj", "{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{7835D810-BAAB-4D1E-B5C2-A84D008ED10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7835D810-BAAB-4D1E-B5C2-A84D008ED10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7835D810-BAAB-4D1E-B5C2-A84D008ED10A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{26A8A7D9-1237-454E-A09B-521C59EDA501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62CCABDD-9503-43D0-9BB0-DF2B5F4464A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
