@@ -11,14 +11,17 @@ namespace StartGame
     class Animation
     {
         private Timer animationTimer;
-        private bool isFlip;
+        private bool isFlip = false;
         protected int currentFrame = 0;
         protected PictureBox pictureBox;
+        SpriteEditor spriteSheet;
 
-        public Animation(PictureBox pictureBox, int interval, bool isFlip)
+        public Animation(Image sprite,int aniFrame,PictureBox pictureBox, int interval, bool isFlip)
         {
             this.pictureBox = pictureBox;
             this.isFlip = isFlip;
+
+            spriteSheet = new SpriteEditor(sprite,aniFrame);
 
             animationTimer = new Timer();
             animationTimer.Interval = interval;
@@ -26,9 +29,11 @@ namespace StartGame
             animationTimer.Start();
         }
 
-        public Animation(PictureBox pictureBox, int interval)
+        public Animation(Image sprite, int aniFrame,PictureBox pictureBox, int interval)
         {
             this.pictureBox = pictureBox;
+
+            spriteSheet = new SpriteEditor(sprite, aniFrame);
 
             animationTimer = new Timer();
             animationTimer.Interval = interval;
@@ -38,18 +43,12 @@ namespace StartGame
 
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            currentFrame++;
-            if (currentFrame >= Assets.TotalFrames)
-            {
-                currentFrame = 0;
-            }
+            currentFrame = (currentFrame + 1) % spriteSheet.tFrame;
             UpdatePictureBox();
         }
 
         protected virtual void UpdatePictureBox()
         {
-            SpriteEditor spriteSheet = new SpriteEditor(Assets.SpriteSheetPath,2);
-
             Rectangle frameRect = new Rectangle(
                 (currentFrame % (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameWidth,
                 (currentFrame / (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameHeight,

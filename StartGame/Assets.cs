@@ -20,10 +20,6 @@ namespace StartGame
         public static string[] ImagePaths { get; private set; }
         public static Image SpriteSheetPath { get; private set; }
         public static Image SpriteSheetPath2 { get; private set; }
-        public static int FrameWidth { get; private set; }
-        public static int FrameHeight { get; private set; }
-        public static int TotalFrames { get; private set; }
-
         static Assets()
         {
             DefaultImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Bottom_template.png"));
@@ -39,9 +35,6 @@ namespace StartGame
             };
 
             SpriteSheetPath = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Sprite_Idel.png"));
-            FrameWidth = 640;
-            FrameHeight = 530;
-            TotalFrames = 2;
         }
     }
 }

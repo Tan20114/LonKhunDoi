@@ -30,10 +30,10 @@ namespace StartGame
         {
             InitializeComponent();
 
-            animation1 = new Animation(pictureBox4, 450, false);
+            animation1 = new Animation(Assets.SpriteSheetPath,2,pictureBox4, 450, false);
             pictureBox4.Parent = pictureBox1;
             pictureBox4.BackColor = Color.Transparent;
-            animation2 = new Animation(pictureBox5, 450, true);
+            animation2 = new Animation(Assets.SpriteSheetPath, 2, pictureBox5, 450, true);
             pictureBox5.Parent = pictureBox1;
             pictureBox5.BackColor = Color.Transparent;
 

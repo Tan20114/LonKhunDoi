@@ -10,7 +10,7 @@ namespace StartGame
     internal class SpriteEditor
     {
         public Image sprite;
-        int tFrame;
+        public int tFrame { get; private set;}
 
         public int FrameWidth
         {
