@@ -32,9 +32,9 @@ namespace StartGame
         {
             InitializeComponent();
 
-            string bottomPath = Path.Combine(Application.StartupPath , "Bottom_template.png");
-            string bottomPathHover = Path.Combine(Application.StartupPath, "Bottom_template_press.png");
-            string Timeclock = Path.Combine(Application.StartupPath, "Clock.png");
+            string bottomPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory ,"assets" ,"Bottom_template.png");
+            string bottomPathHover = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" ,"Bottom_template_press.png");
+            string Timeclock = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Clock.png");
 
             defaultImage = Image.FromFile(bottomPath);
             hoverImage = Image.FromFile(bottomPathHover);
@@ -82,10 +82,10 @@ namespace StartGame
             
             imagePaths = new string[]
             {
-                Path.Combine(Application.StartupPath, "backgroundfrontcmu.png") ,
-                Path.Combine(Application.StartupPath, "backgroundlandmarkone.png") ,
-                Path.Combine(Application.StartupPath, "backgroundspirit.png") ,
-                Path.Combine(Application.StartupPath, "backgroundtemple.png")
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundfrontcmu.png") ,
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets" ,"backgroundlandmarkone.png") ,
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundspirit.png") ,
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundtemple.png")
             };
 
             pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);

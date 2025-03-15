@@ -18,9 +18,9 @@ namespace LonKhunDoi
         {
             InitializeComponent();
 
-            string backGround = Path.Combine(Application.StartupPath, "main_menu.png");
-            string bottom = Path.Combine(Application.StartupPath, "new_startimagelogo.png");
-            string bottomHover = Path.Combine(Application.StartupPath, "new_startimagelogowhenhover.png");
+            string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "main_menu.png");
+            string bottom = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "new_startimagelogo.png");
+            string bottomHover = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "new_startimagelogowhenhover.png");
 
             pictureBox.BackgroundImage = Image.FromFile(backGround);
 

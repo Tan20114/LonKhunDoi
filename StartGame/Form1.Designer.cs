@@ -110,7 +110,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(491, 114);
+            this.label2.Location = new System.Drawing.Point(800, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(480, 200);
             this.label2.TabIndex = 8;
