@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LonKhunDoi.Properties {
+namespace StartGame.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LonKhunDoi.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LonKhunDoi.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StartGame.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace LonKhunDoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap main_menu {
+        internal static System.Drawing.Bitmap backgroundfrontcmu {
             get {
-                object obj = ResourceManager.GetObject("main_menu", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundfrontcmu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace LonKhunDoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_startimagelogo {
+        internal static System.Drawing.Bitmap backgroundlandmarkone {
             get {
-                object obj = ResourceManager.GetObject("new_startimagelogo", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundlandmarkone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace LonKhunDoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_startimagelogowhenhover {
+        internal static System.Drawing.Bitmap backgroundspirit {
             get {
-                object obj = ResourceManager.GetObject("new_startimagelogowhenhover", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundspirit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,19 +93,9 @@ namespace LonKhunDoi.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap start_image_logo {
+        internal static System.Drawing.Bitmap backgroundtemple {
             get {
-                object obj = ResourceManager.GetObject("start_image_logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap start_image_logo_when_hover {
-            get {
-                object obj = ResourceManager.GetObject("start_image_logo_when_hover", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundtemple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
