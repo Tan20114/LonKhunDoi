@@ -23,7 +23,6 @@ namespace StartGame
                 g.DrawImage(Assets.SpriteSheetPath, 0, 0, frameRect, GraphicsUnit.Pixel);
             }
 
-            // Apply horizontal flip to the frame
             frameImage.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
             pictureBox.Image = frameImage;
