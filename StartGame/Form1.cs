@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace StartGame
 {
@@ -31,9 +32,13 @@ namespace StartGame
         {
             InitializeComponent();
 
-            defaultImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\Bottom_template.png");
-            hoverImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\Bottom_template_press.png");
-            clockImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\StartGame\\bin\\Debug\\Clock.png");
+            string bottomPath = Path.Combine(Application.StartupPath , "Bottom_template.png");
+            string bottomPathHover = Path.Combine(Application.StartupPath, "Bottom_template_press.png");
+            string Timeclock = Path.Combine(Application.StartupPath, "Clock.png");
+
+            defaultImage = Image.FromFile(bottomPath);
+            hoverImage = Image.FromFile(bottomPathHover);
+            clockImage = Image.FromFile(Timeclock);
 
             pictureBox3.Parent = pictureBox1;
             pictureBox3.BackgroundImage = defaultImage;
@@ -74,12 +79,13 @@ namespace StartGame
             progressTimer.Interval = 900;
             progressTimer.Tick += ProgressTimer_Tick;
 
+            
             imagePaths = new string[]
             {
-                "C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\StartGame\\bin\\Debug\\backgroundfrontcmu.png",
-                "C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\StartGame\\bin\\Debug\\backgroundlandmarkone.png",
-                "C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\StartGame\\bin\\Debug\\backgroundspirit.png",
-                "C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\StartGame\\bin\\Debug\\backgroundtemple.png"
+                Path.Combine(Application.StartupPath, "backgroundfrontcmu.png") ,
+                Path.Combine(Application.StartupPath, "backgroundlandmarkone.png") ,
+                Path.Combine(Application.StartupPath, "backgroundspirit.png") ,
+                Path.Combine(Application.StartupPath, "backgroundtemple.png")
             };
 
             pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);

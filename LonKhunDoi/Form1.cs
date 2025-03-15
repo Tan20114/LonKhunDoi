@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,15 +18,17 @@ namespace LonKhunDoi
         {
             InitializeComponent();
 
-            pictureBox.BackgroundImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\main_menu.png");
+            string backGround = Path.Combine(Application.StartupPath, "main_menu.png");
+            string bottom = Path.Combine(Application.StartupPath, "new_startimagelogo.png");
+            string bottomHover = Path.Combine(Application.StartupPath, "new_startimagelogowhenhover.png");
 
-            pictureBox1.BackgroundImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\new_startimagelogo.png");
+            pictureBox.BackgroundImage = Image.FromFile(backGround);
 
             pictureBox1.Parent = pictureBox;
             pictureBox1.BackColor = Color.Transparent;
 
-            Image defaultImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\new_startimagelogo.png");
-            Image hoverImage = Image.FromFile("C:\\Users\\Lenovo\\Documents\\GitHub\\LonKhunDoi\\LonKhunDoi\\bin\\Debug\\new_startimagelogowhenhover.png");
+            Image defaultImage = Image.FromFile(bottom);
+            Image hoverImage = Image.FromFile(bottomHover);
 
             pictureBox1.BackgroundImage = defaultImage;
             pictureBox1.MouseEnter += (s, e) => {
