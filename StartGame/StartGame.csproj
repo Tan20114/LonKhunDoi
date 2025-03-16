@@ -98,6 +98,9 @@
     <None Include="bin\Debug\backgroundtemple.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\456_Edit.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\backgroundfrontcmu.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
