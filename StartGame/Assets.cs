@@ -35,7 +35,6 @@ namespace StartGame
         // เพื่อนมันมาจากไหน sounds
         public static MediaPlayer WhoDafuqAreYou { get; private set; } = new MediaPlayer();
         public static MediaPlayer PaiDuyGunPaiDaiGai { get; private set; } = new MediaPlayer();
-        public static MediaPlayer YoungMaiTongRiem { get; private set; } = new MediaPlayer();
         static Assets()
         {
             DefaultImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Bottom_template.png"));
@@ -51,8 +50,6 @@ namespace StartGame
             };
 
             SpriteSheetPath = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Sprite_Idel.png"));
-
-            YoungMaiTongRiem.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "456_Edit.mp3")));//เสียงตอนนับเวลา
 
             ItemDrop.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "ItemDrop_Edit.mp3")));//เสียงไอเท็มหล่น
             Serect_Item_Drop.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Secret_Item_Drop_Edit.mp3")));//เสียงลับไอเท็มหล่น โอกาส 1/100
