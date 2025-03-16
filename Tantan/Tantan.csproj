@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asset.cs" />
     <Compile Include="Debuff1.cs" />
     <Compile Include="Debuff2.cs" />
     <Compile Include="Debuff3.cs" />
@@ -90,6 +91,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\car.png" />
+    <Content Include="Assets\item_left.png" />
+    <Content Include="Assets\item_poop.png" />
+    <Content Include="Assets\item_run.png" />
+    <Content Include="Assets\logo_question.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
