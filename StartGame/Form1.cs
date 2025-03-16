@@ -30,6 +30,7 @@ namespace StartGame
         {
             InitializeComponent();
 
+            Assets.Shit_Sray.Play();
             animation1 = new Animation(Assets.SpriteSheetPath,2,pictureBox4, 450, false);
             pictureBox4.Parent = pictureBox1;
             pictureBox4.BackColor = Color.Transparent;
