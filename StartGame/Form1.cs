@@ -14,7 +14,6 @@ namespace StartGame
     public partial class Form1 : Form
     {
         private Timer imageTimer;
-        private string[] imagePaths;
         private int currentImageIndex = 0;
         private Timer progressTimer;
         private int progressValue1 = 0;
@@ -23,25 +22,23 @@ namespace StartGame
         private int countdownValue;
         private int gameCountdown = 90;
         private Timer gameTimer;
-        private Image defaultImage;
-        private Image hoverImage;
-        private Image clockImage;
         private bool isClockActive = false;
+        private Animation animation1;
+        private Animation animation2;
 
         public Form1()
         {
             InitializeComponent();
 
-            string bottomPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory ,"assets" ,"Bottom_template.png");
-            string bottomPathHover = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" ,"Bottom_template_press.png");
-            string Timeclock = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Clock.png");
-
-            defaultImage = Image.FromFile(bottomPath);
-            hoverImage = Image.FromFile(bottomPathHover);
-            clockImage = Image.FromFile(Timeclock);
+            animation1 = new Animation(Assets.SpriteSheetPath,2,pictureBox4, 450, false);
+            pictureBox4.Parent = pictureBox1;
+            pictureBox4.BackColor = Color.Transparent;
+            animation2 = new Animation(Assets.SpriteSheetPath, 2, pictureBox5, 450, true);
+            pictureBox5.Parent = pictureBox1;
+            pictureBox5.BackColor = Color.Transparent;
 
             pictureBox3.Parent = pictureBox1;
-            pictureBox3.BackgroundImage = defaultImage;
+            pictureBox3.BackgroundImage = Assets.DefaultImage;
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BringToFront();
             label2.Parent = pictureBox1;
@@ -79,16 +76,7 @@ namespace StartGame
             progressTimer.Interval = 900;
             progressTimer.Tick += ProgressTimer_Tick;
 
-            
-            imagePaths = new string[]
-            {
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundfrontcmu.png") ,
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets" ,"backgroundlandmarkone.png") ,
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundspirit.png") ,
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"assets" , "backgroundtemple.png")
-            };
-
-            pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);
+            pictureBox1.BackgroundImage = Image.FromFile(Assets.ImagePaths[currentImageIndex]);
 
             imageTimer = new Timer();
             imageTimer.Interval = 22500;
@@ -104,25 +92,25 @@ namespace StartGame
         private void PictureBox3_MouseEnter(object sender, EventArgs e)
         {
             if (!isClockActive)
-                pictureBox3.BackgroundImage = hoverImage;
+                pictureBox3.BackgroundImage = Assets.HoverImage;
         }
 
         private void PictureBox3_MouseLeave(object sender, EventArgs e)
         {
             if (!isClockActive)
-                pictureBox3.BackgroundImage = defaultImage;
+                pictureBox3.BackgroundImage = Assets.DefaultImage;
         }
 
         private void Label2_MouseEnter(object sender, EventArgs e)
         {
             if (!isClockActive)
-                pictureBox3.BackgroundImage = hoverImage;
+                pictureBox3.BackgroundImage = Assets.HoverImage;
         }
 
         private void Label2_MouseLeave(object sender, EventArgs e)
         {
             if (!isClockActive)
-                pictureBox3.BackgroundImage = defaultImage;
+                pictureBox3.BackgroundImage = Assets.DefaultImage;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -135,7 +123,7 @@ namespace StartGame
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             isClockActive = true;
-            pictureBox3.BackgroundImage = clockImage;
+            pictureBox3.BackgroundImage = Assets.ClockImage;
 
             pictureBox3.MouseEnter -= PictureBox3_MouseEnter;
             pictureBox3.MouseLeave -= PictureBox3_MouseLeave;
@@ -151,7 +139,7 @@ namespace StartGame
         private void label2_Click(object sender, EventArgs e)
         {
             isClockActive = true;
-            pictureBox3.BackgroundImage = clockImage;
+            pictureBox3.BackgroundImage = Assets.ClockImage;
 
             pictureBox3.MouseEnter -= PictureBox3_MouseEnter;
             pictureBox3.MouseLeave -= PictureBox3_MouseLeave;
@@ -172,7 +160,7 @@ namespace StartGame
             progressBar2.Value = progressValue2;
 
             currentImageIndex = 0;
-            pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);
+            pictureBox1.BackgroundImage = Image.FromFile(Assets.ImagePaths[currentImageIndex]);
 
             gameCountdown = 90;
             label2.Text = gameCountdown.ToString();
@@ -184,12 +172,12 @@ namespace StartGame
         {
             currentImageIndex++;
 
-            if (currentImageIndex >= imagePaths.Length)
+            if (currentImageIndex >= Assets.ImagePaths.Length)
             {
                 imageTimer.Stop();
                 return;
             }
-            pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);
+            pictureBox1.BackgroundImage = Image.FromFile(Assets.ImagePaths[currentImageIndex]);
         }
         private void progressBar1_Click(object sender, EventArgs e)
         {
@@ -223,13 +211,13 @@ namespace StartGame
             progressBar1.Value = progressValue1;
             progressBar2.Value = progressValue2;
             currentImageIndex = 0;
-            pictureBox1.BackgroundImage = Image.FromFile(imagePaths[currentImageIndex]);
+            pictureBox1.BackgroundImage = Image.FromFile(Assets.ImagePaths[currentImageIndex]);
             imageTimer.Stop();
             progressTimer.Stop();
             gameTimer.Stop();
 
             isClockActive = false;
-            pictureBox3.BackgroundImage = defaultImage;
+            pictureBox3.BackgroundImage = Assets.DefaultImage;
             label2.Text = "Start";
             pictureBox3.Visible = true;
             label2.Visible = true;
@@ -268,6 +256,5 @@ namespace StartGame
         {
 
         }
-
     }
 }
