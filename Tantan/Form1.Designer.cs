@@ -117,7 +117,8 @@
             // 
             // P2Inventory
             // 
-            this.P2Inventory.BackColor = System.Drawing.Color.White;
+            this.P2Inventory.BackColor = System.Drawing.Color.Transparent;
+            this.P2Inventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.P2Inventory.Location = new System.Drawing.Point(660, 27);
             this.P2Inventory.Name = "P2Inventory";
             this.P2Inventory.Size = new System.Drawing.Size(100, 50);
@@ -126,7 +127,8 @@
             // 
             // P1Inventory
             // 
-            this.P1Inventory.BackColor = System.Drawing.Color.White;
+            this.P1Inventory.BackColor = System.Drawing.Color.Transparent;
+            this.P1Inventory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.P1Inventory.Location = new System.Drawing.Point(30, 27);
             this.P1Inventory.Name = "P1Inventory";
             this.P1Inventory.Size = new System.Drawing.Size(100, 50);
