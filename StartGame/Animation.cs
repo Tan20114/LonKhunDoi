@@ -8,68 +8,69 @@ using System.Windows.Forms;
 
 namespace StartGame
 {
-    class Animation
+    public class Animation
     {
-        private Timer animationTimer;
-        private bool isFlip = false;
         protected int currentFrame = 0;
+        int frameRate = 0;
+
+        private Timer animationTimer;
         protected PictureBox pictureBox;
-        SpriteEditor spriteSheet;
 
-        public Animation(Image sprite,int aniFrame,PictureBox pictureBox, int interval, bool isFlip)
+        private string[] sprite;
+        private bool isRunning = false;
+
+        public Animation(string[] sprite, PictureBox pictureBox, int interval)
         {
             this.pictureBox = pictureBox;
-            this.isFlip = isFlip;
-
-            spriteSheet = new SpriteEditor(sprite,aniFrame);
+            this.sprite = sprite;
 
             animationTimer = new Timer();
             animationTimer.Interval = interval;
             animationTimer.Tick += AnimationTimer_Tick;
-            animationTimer.Start();
-        }
 
-        public Animation(Image sprite, int aniFrame,PictureBox pictureBox, int interval)
-        {
-            this.pictureBox = pictureBox;
-
-            spriteSheet = new SpriteEditor(sprite, aniFrame);
-
-            animationTimer = new Timer();
-            animationTimer.Interval = interval;
-            animationTimer.Tick += AnimationTimer_Tick;
-            animationTimer.Start();
+            StartAnimation();
         }
 
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            currentFrame = (currentFrame + 1) % spriteSheet.tFrame;
-            UpdatePictureBox();
+            if (isRunning)
+            {
+                UpdatePictureBox();
+            }
         }
 
-        protected virtual void UpdatePictureBox()
+        protected void UpdatePictureBox()
         {
-            Rectangle frameRect = new Rectangle(
-                (currentFrame % (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameWidth,
-                (currentFrame / (spriteSheet.sprite.Width / spriteSheet.FrameWidth)) * spriteSheet.FrameHeight,
-                spriteSheet.FrameWidth,
-                spriteSheet.FrameHeight
-            );
-
-            Bitmap frameImage = new Bitmap(spriteSheet.FrameWidth, spriteSheet.FrameHeight);
-
-            using (Graphics g = Graphics.FromImage(frameImage))
+            frameRate++;
+            if (frameRate == 2)
             {
-                g.DrawImage(spriteSheet.sprite, 0, 0, frameRect, GraphicsUnit.Pixel);
+                currentFrame++;
+                frameRate = 0;
             }
 
-            pictureBox.Image = frameImage;
-
-            if(isFlip)
+            if (currentFrame >= sprite.Length)
             {
-                pictureBox.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                pictureBox.Refresh();
+                currentFrame = 0;
+            }
+
+            pictureBox.BackgroundImage = Image.FromFile(sprite[currentFrame]);
+            pictureBox.Refresh();
+        }
+
+        public void StopAnimation()
+        {
+            isRunning = false;
+            animationTimer.Stop();
+        }
+
+        public void StartAnimation()
+        {
+            if (!isRunning)
+            {
+                isRunning = true;
+                animationTimer.Start();
             }
         }
     }
+
 }
