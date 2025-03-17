@@ -62,6 +62,19 @@ namespace StartGame
 
         public void SpawnItem()
         {
+            Random randomValue = new Random();
+            int randomVal = randomValue.Next(1,101);
+            if(randomVal < 80)
+            {
+                Assets.ItemDrop.Stop();
+                Assets.ItemDrop.Play();
+            }
+            else
+            {
+                Assets.Serect_Item_Drop.Stop();
+                Assets.Serect_Item_Drop.Play();
+            }
+
             speed = 0;
             SetObject();
             itemObject.Visible = true;
@@ -113,7 +126,7 @@ namespace StartGame
         public Item RandomItem()
         {
             Random random = new Random();
-            int randomTypeValue = 3; //random.Next(1, 4);
+            int randomTypeValue = random.Next(1, 4);
             switch (randomTypeValue)
             {
                 case 1:

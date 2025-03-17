@@ -20,11 +20,22 @@ namespace StartGame
         public static Image BottomHover { get; private set; }
         public static string[] ImagePaths { get; private set; }
 
+        #region Key
+        #region Key Normal
+        public static string[] key;
+        #endregion
+        #region Key Press
+        public static string[] keyPress;
+        #endregion
+        #endregion
+
+        #region ItemSection
         public static string[] qMark;
         public static Image shitIcon;
         public static Image carIcon;
         public static Image car;
         public static Image friendIcon;
+        #endregion
 
         #region Sprite Sheet
         public static string[] SpriteSheetPath { get; private set; }
@@ -62,12 +73,16 @@ namespace StartGame
         #endregion
         #region Misc. Sound
         public static MediaPlayer YoungMaiTongRiem { get; private set; } = new MediaPlayer();
+        public static MediaPlayer bgm = new MediaPlayer();
         #endregion
         static Assets()
         {
             DefaultImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Bottom_template.png"));
             HoverImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Bottom_template_press.png"));
             ClockImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Clock.png"));
+
+            key = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Keyboard_Steady"));
+            keyPress = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Keyboard_Press"));
 
             #region BG
             Assets.ImagePaths = new string[]
@@ -101,10 +116,12 @@ namespace StartGame
 
             #endregion
             #region Audio
+            bgm.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Audio", "BGM.mp3")));
+
             YoungMaiTongRiem.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","Audio", "456_Edit.mp3")));//เสียงตอนนับเวลา
 
             ItemDrop.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","Audio", "ItemDrop_Edit.mp3")));//เสียงไอเท็มหล่น
-            Serect_Item_Drop.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Audio", "Secret_Item_Drop_Edit.mp3")));//เสียงลับไอเท็มหล่น โอกาส 1/100
+            Serect_Item_Drop.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Audio", "Serect_Item_Drop_Edit.mp3")));//เสียงลับไอเท็มหล่น โอกาส 1/100
 
             Shit_Sray.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","Audio", "Shit_Sray_Edit.mp3")));//เสียงกดใช้ไอเท็มชิดซ้าย
             RodMalaJa.Open(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","Audio", "RodMalaJa_Edit.mp3")));//เสียงตอนรถโผล่มา

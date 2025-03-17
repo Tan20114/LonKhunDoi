@@ -30,12 +30,12 @@ namespace StartGame
         #endregion
 
         #region Debuff var
-        protected bool isDebuff1 = false;
+        public bool isDebuff1 = false;
 
-        protected bool isDebuff2 = false;
+        public bool isDebuff2 = false;
         protected bool isDebuff2End = false;
         protected int debuff2Counter = 0;
-        protected bool keyPressed = false;
+        public bool keyPressed = false;
 
         public bool isDebuff3 = false;
         #endregion
@@ -199,6 +199,7 @@ namespace StartGame
                 }
                 else
                 {
+                    carObj.Visible = false;
                     scoreValue = 1;
                     await Task.Delay(2000);
                 }
@@ -209,14 +210,21 @@ namespace StartGame
 
         async void Debuff3()
         {
+            
             Control seniorObj = (opponent is Player1)? form.Senior2 : form.Senior1;
             if(seniorObj != null)
             {
                 seniorObj.Visible = true;
             }
 
-            await MoveControl(seniorObj, aniPlaceHolder.Location.X, 100);
+            Assets.WhoDafuqAreYou.Stop();
+            Assets.WhoDafuqAreYou.Play();
+            await Task.Delay(3000);
 
+            Assets.PaiDuyGunPaiDaiGai.Stop();
+            Assets.PaiDuyGunPaiDaiGai.Play();
+
+            await MoveControl(seniorObj, aniPlaceHolder.Location.X, 100);
             seniorObj.Visible = false;
 
             if (opponent is Player1)

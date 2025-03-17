@@ -43,6 +43,10 @@
             this.Car2 = new System.Windows.Forms.PictureBox();
             this.Senior1 = new System.Windows.Forms.PictureBox();
             this.Senior2 = new System.Windows.Forms.PictureBox();
+            this.LVisual1 = new System.Windows.Forms.PictureBox();
+            this.RVisual1 = new System.Windows.Forms.PictureBox();
+            this.LVisual2 = new System.Windows.Forms.PictureBox();
+            this.RVisual2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -52,6 +56,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Car2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senior1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senior2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVisual1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RVisual1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVisual2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RVisual2)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -155,6 +163,7 @@
             this.ScoreTxt.Size = new System.Drawing.Size(638, 198);
             this.ScoreTxt.TabIndex = 11;
             this.ScoreTxt.Text = "Score";
+            this.ScoreTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -208,6 +217,50 @@
             this.Senior2.TabIndex = 15;
             this.Senior2.TabStop = false;
             // 
+            // LVisual1
+            // 
+            this.LVisual1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LVisual1.BackColor = System.Drawing.Color.Transparent;
+            this.LVisual1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LVisual1.Location = new System.Drawing.Point(144, 353);
+            this.LVisual1.Name = "LVisual1";
+            this.LVisual1.Size = new System.Drawing.Size(300, 300);
+            this.LVisual1.TabIndex = 16;
+            this.LVisual1.TabStop = false;
+            // 
+            // RVisual1
+            // 
+            this.RVisual1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RVisual1.BackColor = System.Drawing.Color.Transparent;
+            this.RVisual1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RVisual1.Location = new System.Drawing.Point(518, 353);
+            this.RVisual1.Name = "RVisual1";
+            this.RVisual1.Size = new System.Drawing.Size(300, 300);
+            this.RVisual1.TabIndex = 17;
+            this.RVisual1.TabStop = false;
+            // 
+            // LVisual2
+            // 
+            this.LVisual2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LVisual2.BackColor = System.Drawing.Color.Transparent;
+            this.LVisual2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.LVisual2.Location = new System.Drawing.Point(1418, 353);
+            this.LVisual2.Name = "LVisual2";
+            this.LVisual2.Size = new System.Drawing.Size(300, 300);
+            this.LVisual2.TabIndex = 18;
+            this.LVisual2.TabStop = false;
+            // 
+            // RVisual2
+            // 
+            this.RVisual2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RVisual2.BackColor = System.Drawing.Color.Transparent;
+            this.RVisual2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RVisual2.Location = new System.Drawing.Point(1796, 353);
+            this.RVisual2.Name = "RVisual2";
+            this.RVisual2.Size = new System.Drawing.Size(300, 300);
+            this.RVisual2.TabIndex = 19;
+            this.RVisual2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -215,6 +268,10 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(2164, 1319);
+            this.Controls.Add(this.RVisual2);
+            this.Controls.Add(this.LVisual2);
+            this.Controls.Add(this.RVisual1);
+            this.Controls.Add(this.LVisual1);
             this.Controls.Add(this.Senior2);
             this.Controls.Add(this.Senior1);
             this.Controls.Add(this.Car2);
@@ -245,6 +302,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Car2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senior1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senior2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVisual1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RVisual1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LVisual2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RVisual2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,6 +325,10 @@
         public System.Windows.Forms.PictureBox Car1;
         public System.Windows.Forms.PictureBox Senior1;
         public System.Windows.Forms.PictureBox Senior2;
+        public System.Windows.Forms.PictureBox LVisual1;
+        public System.Windows.Forms.PictureBox RVisual1;
+        public System.Windows.Forms.PictureBox LVisual2;
+        public System.Windows.Forms.PictureBox RVisual2;
     }
 }
 

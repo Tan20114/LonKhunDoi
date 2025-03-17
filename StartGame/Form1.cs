@@ -20,6 +20,8 @@ namespace StartGame
         Player1 p1;
         Player2 p2;
 
+        UI ui;
+
         bool isGameStart = false;
         bool isSpawnable = false;
 
@@ -41,11 +43,15 @@ namespace StartGame
         {
             InitializeComponent();
 
+            InitializeBGM();
+
             item = new Item(this);
             p1 = new Player1(item, this);
             p2 = new Player2(item, this);
             p1.SetOpponent(p2);
             p2.SetOpponent(p1);
+
+            ui = new UI(this,p1,p2);
 
             Car1.Visible = false;
             Car2.Visible = false;
@@ -154,7 +160,7 @@ namespace StartGame
             pictureBox3.Location = new Point(465, 25);
             label2.Location = new Point(pictureBox3.Width / 2 - label2.Width / 2, pictureBox3.Height / 2 - label2.Height / 2);
         }
-        private void label2_Click(object sender, EventArgs e)
+        private async void label2_Click(object sender, EventArgs e)
         {
             isClockActive = true;
             pictureBox3.BackgroundImage = Assets.ClockImage;
@@ -169,6 +175,10 @@ namespace StartGame
             countdownTimer.Start();
             pictureBox3.Location = new Point(465, 25);
             label2.Location = new Point(pictureBox3.Width / 2 - label2.Width / 2, pictureBox3.Height / 2 - label2.Height / 2);
+
+            Delay(2000);
+            Assets.YoungMaiTongRiem.Stop();
+            Assets.YoungMaiTongRiem.Play();
         }
         private void StartGame()
         {
@@ -261,9 +271,9 @@ namespace StartGame
         }
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            if(isSpawnable)
+            if (isSpawnable)
             {
-                SpawnItemInterval(5000);
+                SpawnItemInterval(15000);
                 isSpawnable = false;
             }
             isGameStart = true;
@@ -276,13 +286,28 @@ namespace StartGame
             {
                 isGameStart = false;
                 gameTimer.Stop();
+                if(score > 0)
+                {
+                    //Player 1 ชนะ
+                }
+                else
+                {
+                    //Player 2 ชนะ
+                }
                 RestartScene();
             }
         }
 
+        async void Delay(int delay)
+        {
+            await Task.Delay(delay);
+        }
+
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
-
+            Delay(2000);
+            Assets.YoungMaiTongRiem.Stop();
+            Assets.YoungMaiTongRiem.Play();
         }
 
         private void HandleInput(object sender, KeyEventArgs e)
@@ -314,10 +339,16 @@ namespace StartGame
             p2.resetKeyPress();
         }
 
+        public static void InitializeBGM()
+        {
+            Assets.bgm.MediaEnded += (sender, e) => Assets.bgm.Position = TimeSpan.Zero; // Loop audio
+            Assets.bgm.Play();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ScoreTxt.Text = score.ToString();
             item.Update();
+            ui.Update();
         }
     }
 }
