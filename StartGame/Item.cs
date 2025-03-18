@@ -26,8 +26,8 @@ namespace StartGame
         public Image sprite;
         public Color color;
 
-        protected Point spawnPoint = new Point(1500,0);
-        int endPoint = 600;
+        protected Point spawnPoint = new Point(800,0);
+        int endPoint = 300;
 
         public DebuffType type = DebuffType.None;
 

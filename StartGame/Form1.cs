@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using PurpleWin;
+using YellowWin;
 
 namespace StartGame
 {
@@ -66,11 +68,13 @@ namespace StartGame
             seniorAni2 = new Animation(Assets.bHug2,Senior2,100);
 
             pictureBox3.BackgroundImage = Assets.DefaultImage;
+            pictureBox3.Location = new Point((this.ClientSize.Width - pictureBox3.Width) / 2, -50);
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.BringToFront();
+            label2.Parent = pictureBox3;
             label2.BackColor = Color.Transparent;
             label2.BringToFront();
-            label2.Location = new Point(pictureBox3.Location.X - 325, pictureBox3.Location.Y - 10);
+            label2.Location = new Point((pictureBox3.Width - label2.Width) / 2, (pictureBox3.Height - label2.Height) / 2);
 
             pictureBox3.MouseEnter += PictureBox3_MouseEnter;
             pictureBox3.MouseLeave += PictureBox3_MouseLeave;
@@ -81,7 +85,7 @@ namespace StartGame
             this.label2.Click += new System.EventHandler(this.label2_Click);
 
             gameTimer = new Timer();
-            gameTimer.Interval = 1000;
+            gameTimer.Interval = 1000;//
             gameTimer.Tick += GameTimer_Tick;
 
             countdownTimer = new Timer();
@@ -93,10 +97,12 @@ namespace StartGame
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.RightToLeft = RightToLeft.Yes;
             progressBar1.RightToLeftLayout = true;
+            progressBar1.Location = new Point(365, 800);
 
             progressBar2.Maximum = 100;
             progressBar2.Value = progressValue2;
             progressBar2.Style = ProgressBarStyle.Continuous;
+            progressBar2.Location = new Point(735, 800);
 
             progressTimer = new Timer();
             progressTimer.Interval = 900;
@@ -109,7 +115,7 @@ namespace StartGame
             imageTimer.Tick += ImageTimer_Tick;
 
             pictureBox3.Visible = true;
-            label2.Location = new Point(pictureBox3.Location.X + 10, pictureBox3.Location.Y + 10);
+            label2.Location = new Point((pictureBox3.Width - label2.Width) / 2, (pictureBox3.Height - label2.Height) / 2);
         }
         private void PictureBox3_MouseEnter(object sender, EventArgs e)
         {
@@ -142,7 +148,7 @@ namespace StartGame
             label2.BackColor = Color.Transparent;
             label2.Visible = true;
             label2.BringToFront();
-            label2.Location = new Point(pictureBox3.Location.X -325, pictureBox3.Location.Y-10);
+            label2.Location = new Point((pictureBox3.Width - label2.Width) / 2, (pictureBox3.Height - label2.Height) / 2);
         }
         private void pictureBox3_Click(object sender, EventArgs e)
         {
@@ -157,10 +163,10 @@ namespace StartGame
             countdownValue = 4;
             label2.Text = countdownValue.ToString();
             countdownTimer.Start();
-            pictureBox3.Location = new Point(465, 25);
-            label2.Location = new Point(pictureBox3.Width / 2 - label2.Width / 2, pictureBox3.Height / 2 - label2.Height / 2);
+            pictureBox3.Location = new Point((this.ClientSize.Width - pictureBox3.Width) / 2, -50);
+            label2.Location = new Point((pictureBox3.Width - label2.Width) / 2, (pictureBox3.Height - label2.Height) / 2);
         }
-        private async void label2_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
             isClockActive = true;
             pictureBox3.BackgroundImage = Assets.ClockImage;
@@ -173,7 +179,7 @@ namespace StartGame
             countdownValue = 4;
             label2.Text = countdownValue.ToString();
             countdownTimer.Start();
-            pictureBox3.Location = new Point(465, 25);
+            pictureBox3.Location = new Point((this.ClientSize.Width - pictureBox3.Width) / 2, 30);
             label2.Location = new Point(pictureBox3.Width / 2 - label2.Width / 2, pictureBox3.Height / 2 - label2.Height / 2);
 
             Delay(2000);
@@ -286,15 +292,25 @@ namespace StartGame
             {
                 isGameStart = false;
                 gameTimer.Stop();
-                if(score > 0)
+                if (score > 0)
                 {
-                    //Player 1 ชนะ
+                    Assets.bgm.Stop();
+                    PurpleWin.Form1 purpleWinForm = new PurpleWin.Form1();
+                    purpleWinForm.Show();
+                    this.Hide();
+                }
+                else if (score < 0)
+                {
+                    Assets.bgm.Stop();
+                    YellowWin.Form1 yellowWinForm = new YellowWin.Form1();
+                    yellowWinForm.Show();
+                    this.Hide();
                 }
                 else
                 {
-                    //Player 2 ชนะ
+                    RestartScene();
                 }
-                RestartScene();
+                    
             }
         }
 
@@ -349,6 +365,16 @@ namespace StartGame
         {
             item.Update();
             ui.Update();
+        }
+
+        private void RVisual2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LVisual2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

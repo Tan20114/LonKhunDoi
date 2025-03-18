@@ -314,5 +314,15 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PurpleWin\PurpleWin.csproj">
+      <Project>{bb7b6bf7-2fe0-489f-ada3-d56e9af69972}</Project>
+      <Name>PurpleWin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YellowWin\YellowWin.csproj">
+      <Project>{b0a5bcd4-7bae-4f9b-b5af-51a7feb20a78}</Project>
+      <Name>YellowWin</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
