@@ -14,6 +14,7 @@ namespace YellowWin
     public partial class Form1: Form
     {
         Form m;
+        Icon gameIcon;
         public Form1(Form parent)
         {
             m = parent;
@@ -21,6 +22,7 @@ namespace YellowWin
             string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "yellowwin.jpg");
             pictureBox1.BackgroundImage = Image.FromFile(backGround);
 
+            gameIcon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Icon.ico"));
             string bottom = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Bottom_template.png");
             string bottomHover = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Bottom_template_press.png");
             Image defaultImage = Image.FromFile(bottom);
@@ -88,7 +90,7 @@ namespace YellowWin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.Icon = gameIcon;
         }
 
         private void label1_Click(object sender, EventArgs e)

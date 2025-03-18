@@ -12,6 +12,7 @@ namespace StartGame
 {
     public static class Assets
     {
+        public static Icon gameIcon;
         public static Image DefaultImage { get; private set; }
         public static Image HoverImage { get; private set; }
         public static Image ClockImage { get; private set; }
@@ -77,6 +78,8 @@ namespace StartGame
         #endregion
         static Assets()
         {
+            gameIcon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","Icon.ico"));
+
             DefaultImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Bottom_template.png"));
             HoverImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Bottom_template_press.png"));
             ClockImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets","UI", "Clock.png"));

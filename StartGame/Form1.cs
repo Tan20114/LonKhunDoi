@@ -146,6 +146,7 @@ namespace StartGame
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Icon = Assets.gameIcon;
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(HandleInput);
 

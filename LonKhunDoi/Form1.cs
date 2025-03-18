@@ -16,10 +16,12 @@ namespace LonKhunDoi
 {
     public partial class Form1 : Form
     {
+        Icon gameIcon;
         public Form1()
         {
             InitializeComponent();
 
+            gameIcon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Icon.ico"));
             string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "main_menu.png");
             string bottom = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "new_startimagelogo.png");
             string bottomHover = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "new_startimagelogowhenhover.png");
@@ -56,6 +58,11 @@ namespace LonKhunDoi
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Icon = gameIcon;
         }
     }
 }

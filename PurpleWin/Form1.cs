@@ -14,10 +14,11 @@ namespace PurpleWin
     public partial class Form1: Form
     {
         Form m;
-
+        Icon gameIcon;
         public Form1(Form main)
         {
             m = main;
+            gameIcon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "Icon.ico"));
             InitializeComponent();
             string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "purplewin.png");
             pictureBox1.BackgroundImage = Image.FromFile(backGround);
@@ -88,7 +89,7 @@ namespace PurpleWin
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.Icon = gameIcon;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
