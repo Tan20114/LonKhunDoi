@@ -13,8 +13,11 @@ namespace PurpleWin
 {
     public partial class Form1: Form
     {
-        public Form1()
+        Form m;
+
+        public Form1(Form main)
         {
+            m = main;
             InitializeComponent();
             string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "purplewin.png");
             pictureBox1.BackgroundImage = Image.FromFile(backGround);
@@ -99,13 +102,13 @@ namespace PurpleWin
 
         private void LetterPlay_Click(object sender, EventArgs e)
         {
-
+            m.Show();
+            this.Hide();
         }
 
         private void PlayAgain_Click(object sender, EventArgs e)
         {
-            LonKhunDoi lonKhunDoiForm = new LonKhunDoi();
-            lonKhunDoiForm.Show();
+            m.Show();
             this.Hide();
         }
     }

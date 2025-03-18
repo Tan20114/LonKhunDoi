@@ -15,6 +15,8 @@ namespace StartGame
 {
     public partial class Form1 : Form
     {
+        Form previousForm;
+
         public static float score;
 
         Item item;
@@ -41,9 +43,11 @@ namespace StartGame
         Animation seniorAni1;
         Animation seniorAni2;
 
-        public Form1()
+        public Form1(Form main)
         {
             InitializeComponent();
+
+            previousForm = main;
 
             InitializeBGM();
 
@@ -240,6 +244,7 @@ namespace StartGame
         }
         private void RestartScene()
         {
+            score = 0;
             progressValue1 = 0;
             progressValue2 = 0;
             progressBar1.Value = progressValue1;
@@ -295,14 +300,16 @@ namespace StartGame
                 if (score > 0)
                 {
                     Assets.bgm.Stop();
-                    PurpleWin.Form1 purpleWinForm = new PurpleWin.Form1();
+                    RestartScene();
+                    PurpleWin.Form1 purpleWinForm = new PurpleWin.Form1(previousForm);
                     purpleWinForm.Show();
                     this.Hide();
                 }
                 else if (score < 0)
                 {
                     Assets.bgm.Stop();
-                    YellowWin.Form1 yellowWinForm = new YellowWin.Form1();
+                    RestartScene();
+                    YellowWin.Form1 yellowWinForm = new YellowWin.Form1(previousForm);
                     yellowWinForm.Show();
                     this.Hide();
                 }

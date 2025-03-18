@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StartGame;
+using PurpleWin;
+using YellowWin;
 
 namespace LonKhunDoi
 {
@@ -40,7 +42,7 @@ namespace LonKhunDoi
             };
 
             pictureBox1.Click += (s, e) => {
-                StartGame.Form1 startGameForm = new StartGame.Form1();
+                StartGame.Form1 startGameForm = new StartGame.Form1(this);
                 startGameForm.Show();
                 this.Hide();
             };

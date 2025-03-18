@@ -13,8 +13,10 @@ namespace YellowWin
 {
     public partial class Form1: Form
     {
-        public Form1()
+        Form m;
+        public Form1(Form parent)
         {
+            m = parent;
             InitializeComponent();
             string backGround = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "assets", "yellowwin.jpg");
             pictureBox1.BackgroundImage = Image.FromFile(backGround);
@@ -89,14 +91,21 @@ namespace YellowWin
 
         }
 
-        private void PlayerWin_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LetterPlay_Click_1(object sender, EventArgs e)
         {
+            m.Show();
+            this.Hide();
+        }
 
+        private void PlayAgain_Click_1(object sender, EventArgs e)
+        {
+            m.Show();
+            this.Hide();
         }
     }
 }

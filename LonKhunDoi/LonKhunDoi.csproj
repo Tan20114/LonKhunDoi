@@ -96,9 +96,17 @@
     <None Include="bin\Debug\new_startimagelogowhenhover.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PurpleWin\PurpleWin.csproj">
+      <Project>{bb7b6bf7-2fe0-489f-ada3-d56e9af69972}</Project>
+      <Name>PurpleWin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StartGame\StartGame.csproj">
       <Project>{62ccabdd-9503-43d0-9bb0-df2b5f4464a0}</Project>
       <Name>StartGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YellowWin\YellowWin.csproj">
+      <Project>{b0a5bcd4-7bae-4f9b-b5af-51a7feb20a78}</Project>
+      <Name>YellowWin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
